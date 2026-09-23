@@ -2,20 +2,32 @@
 
 Commet is the platform where a company configures how it charges its customers. This exercise is an interface inside the Commet dashboard.
 
-Nimbus is a customer of Commet: it generates images, copy and video with AI, and charges for it in credits. `data/catalog.ts` holds their entire pricing — 12 features, 5 plans, 9 plan versions, 105 feature configurations, and the metrics for the current period.
+Nimbus is a customer of Commet: it generates images, copy and video with AI, and charges for it in credits. `data/catalog.ts` holds their entire pricing — 12 features, 5 plans, 9 plan versions, 105 feature configurations — and how many customers are subscribed to each version.
 
-The people using it are the Nimbus team configuring their own product. Not Nimbus end customers.
+The people using it are the Nimbus team: technical people shipping their own product and changing its pricing often. Not Nimbus end customers.
 
 ## Objective
 
-Someone at Nimbus opens the interface, understands how they are charging their customers, and understands what happens if they change it.
+1. **Present complex data.** Someone at Nimbus opens the interface and understands how they are charging their customers.
+2. **Create a new plan.** A flow that takes them from nothing to a published plan, understanding what each decision means before making it.
 
-Questions they need to answer:
+Editing an existing plan is optional.
 
-- What separates one plan from the next
-- Who is affected by changing the price of a feature
-- What changed between one plan version and the previous one, and who stayed on which
-- Where consumption is happening, and where extra billing is piling up
+## Questions to start from
+
+**Presenting**
+
+- What does someone need to see first, and what can wait?
+- What separates one plan from the next?
+- How do you show a plan whose customers are spread across versions, and what changed between them?
+- Who is affected if the price of a feature changes?
+
+**Creating**
+
+- Where does the new plan fit among the existing ones, and how does the person see that while creating it?
+- What do you ask first, and what can wait?
+- What does the person need to see before publishing?
+- How do they notice a plan that doesn't make sense next to the others?
 
 ## Data model
 
@@ -27,14 +39,14 @@ Nimbus charges in credits: every plan includes an amount per period, and every a
 | `feature` | Everything the product offers. Defined once, in a catalog |
 | `plan` | What a customer subscribes to. `isPublic` marks whether it is offered openly or sold privately |
 | `PlanPrice` | A plan billed monthly or yearly, each with its own included credits |
-| `PlanRelease` | A version of a plan. Changing a plan publishes a new version |
+| `PlanRelease` | A version of a plan. Changing its features publishes a new version |
 | `ReleaseFeature` | A catalog feature as configured inside one version of one plan |
 | `creditPack` | Loose credits a customer buys when they run short, without changing plan |
-| `metrics` | What happened during the period. Not configuration |
+| `subscriptionsByRelease` | How many customers are on each version of each plan. Live state, not configuration |
 
 | Field | Values |
 | --- | --- |
-| `feature.type: "credit"` | Spends credits. `creditsPerUnit` sets how many per unit: an image costs 5, an API call 1, a video 30 |
+| `feature.type: "credit"` | Spends credits. `creditsPerUnit` sets how many per unit: in Growth's published version a generation costs 5, an API call 1, a video render 30 |
 | `feature.type: "capacity"` | Does not spend credits. Includes an amount and, past it, either bills per unit (`overage: billed`) or cuts off (`overage: blocked`). Seats, storage, workspaces |
 | `feature.type: "boolean"` | On or off. SSO, audit log, priority support |
 | `pricing.type` | `free`, or `standard` with monthly and yearly prices |
@@ -48,21 +60,19 @@ Amounts are in cents: `9900` is $99.00.
 The credit chain: the `PlanPrice` sets a budget (`includedCredits`), consumption features spend it (`creditsPerUnit` × usage), the `exhaustionPolicy` decides what happens when it runs out, and a `creditPack` buys more without changing plan.
 
 - A plan has several versions. `currentReleaseVersion` is the published one, but customers stay on the version they subscribed to. A plan can have customers spread across versions, and the published one is not always where most of them are.
+- Only features are versioned. Price, included credits and `exhaustionPolicy` belong to the plan, not to a version: changing them reaches every customer on every version at their next renewal.
 - A `ReleaseFeature` configures, by `code`, a feature that already exists in the catalog. The same feature is configured differently in every version of every plan.
-- Capacity features are the only ones that bill outside the plan price.
-- `metrics` joins the configuration on `planCode` + `version`, and on `featureCode` where it applies. Plans describe how you charge; `metrics` describes what happened.
+- `subscriptionsByRelease` joins the plans on `planCode` + `version`.
 
 ## Scope
 
-The interface can show, create or edit. One page or several, laid out however presents the information best. Nothing has to persist — faked editing is fine. What matters is that the experience makes clear what changing a field means before it is changed, and how the information is ordered.
-
-The data model is not fixed. Types are in `lib/catalog.ts` and the data is a `satisfies`, so the compiler reports any change that leaves it inconsistent.
+One page or several, laid out however presents the information best. Nothing has to persist — faking the save is fine. What matters is how the information is ordered, and that the experience makes clear what each field means before it is set.
 
 You can use AI agents. The code you hand in is yours and we will read it.
 
 ## Delivering
 
-Create a private repository from this template with "Use this template", work there, and send us the link.
+Create a public repository from this template with "Use this template", work there, and email the link to decker@commet.co.
 
 ## Running
 
@@ -70,5 +80,3 @@ Create a private repository from this template with "Use this template", work th
 pnpm install
 pnpm dev
 ```
-
-The starting page prints the raw data as stored.

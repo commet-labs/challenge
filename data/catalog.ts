@@ -1039,355 +1039,51 @@ export const catalog = {
       ]
     }
   ],
-  metrics: {
-    periodStart: "2026-09-01T00:00:00Z",
-    periodEnd: "2026-09-30T23:59:59Z",
-    subscriptionsByRelease: [
-      {
-        planCode: "free",
-        version: 1,
-        subscriptions: 1240
-      },
-      {
-        planCode: "starter",
-        version: 1,
-        subscriptions: 86
-      },
-      {
-        planCode: "starter",
-        version: 2,
-        subscriptions: 502
-      },
-      {
-        planCode: "growth",
-        version: 1,
-        subscriptions: 12
-      },
-      {
-        planCode: "growth",
-        version: 2,
-        subscriptions: 340
-      },
-      {
-        planCode: "growth",
-        version: 3,
-        subscriptions: 46
-      },
-      {
-        planCode: "scale",
-        version: 1,
-        subscriptions: 18
-      },
-      {
-        planCode: "scale",
-        version: 2,
-        subscriptions: 94
-      },
-      {
-        planCode: "enterprise",
-        version: 1,
-        subscriptions: 7
-      }
-    ],
-    creditsConsumedByFeature: [
-      {
-        planCode: "free",
-        version: 1,
-        featureCode: "ai_generation",
-        creditsConsumed: 306900
-      },
-      {
-        planCode: "free",
-        version: 1,
-        featureCode: "api_calls",
-        creditsConsumed: 139500
-      },
-      {
-        planCode: "starter",
-        version: 1,
-        featureCode: "ai_generation",
-        creditsConsumed: 223494
-      },
-      {
-        planCode: "starter",
-        version: 1,
-        featureCode: "api_calls",
-        creditsConsumed: 101588
-      },
-      {
-        planCode: "starter",
-        version: 2,
-        featureCode: "ai_generation",
-        creditsConsumed: 1043658
-      },
-      {
-        planCode: "starter",
-        version: 2,
-        featureCode: "api_calls",
-        creditsConsumed: 474390
-      },
-      {
-        planCode: "starter",
-        version: 2,
-        featureCode: "video_render",
-        creditsConsumed: 379520
-      },
-      {
-        planCode: "growth",
-        version: 1,
-        featureCode: "ai_generation",
-        creditsConsumed: 96936
-      },
-      {
-        planCode: "growth",
-        version: 1,
-        featureCode: "api_calls",
-        creditsConsumed: 44063
-      },
-      {
-        planCode: "growth",
-        version: 2,
-        featureCode: "ai_generation",
-        creditsConsumed: 2197248
-      },
-      {
-        planCode: "growth",
-        version: 2,
-        featureCode: "api_calls",
-        creditsConsumed: 998750
-      },
-      {
-        planCode: "growth",
-        version: 2,
-        featureCode: "video_render",
-        creditsConsumed: 798990
-      },
-      {
-        planCode: "growth",
-        version: 3,
-        featureCode: "ai_generation",
-        creditsConsumed: 297275
-      },
-      {
-        planCode: "growth",
-        version: 3,
-        featureCode: "api_calls",
-        creditsConsumed: 135125
-      },
-      {
-        planCode: "growth",
-        version: 3,
-        featureCode: "video_render",
-        creditsConsumed: 108090
-      },
-      {
-        planCode: "scale",
-        version: 1,
-        featureCode: "ai_generation",
-        creditsConsumed: 320760
-      },
-      {
-        planCode: "scale",
-        version: 1,
-        featureCode: "api_calls",
-        creditsConsumed: 145800
-      },
-      {
-        planCode: "scale",
-        version: 1,
-        featureCode: "video_render",
-        creditsConsumed: 116640
-      },
-      {
-        planCode: "scale",
-        version: 2,
-        featureCode: "ai_generation",
-        creditsConsumed: 1675080
-      },
-      {
-        planCode: "scale",
-        version: 2,
-        featureCode: "api_calls",
-        creditsConsumed: 761400
-      },
-      {
-        planCode: "scale",
-        version: 2,
-        featureCode: "video_render",
-        creditsConsumed: 609125
-      },
-      {
-        planCode: "enterprise",
-        version: 1,
-        featureCode: "ai_generation",
-        creditsConsumed: 762300
-      },
-      {
-        planCode: "enterprise",
-        version: 1,
-        featureCode: "api_calls",
-        creditsConsumed: 346500
-      },
-      {
-        planCode: "enterprise",
-        version: 1,
-        featureCode: "video_render",
-        creditsConsumed: 277200
-      }
-    ],
-    capacityRevenueByFeature: [
-      {
-        planCode: "starter",
-        version: 1,
-        featureCode: "storage_gb",
-        revenue: 2715
-      },
-      {
-        planCode: "starter",
-        version: 1,
-        featureCode: "seats",
-        revenue: 103500
-      },
-      {
-        planCode: "starter",
-        version: 1,
-        featureCode: "workspaces",
-        revenue: 30000
-      },
-      {
-        planCode: "starter",
-        version: 2,
-        featureCode: "storage_gb",
-        revenue: 15810
-      },
-      {
-        planCode: "starter",
-        version: 2,
-        featureCode: "seats",
-        revenue: 603000
-      },
-      {
-        planCode: "starter",
-        version: 2,
-        featureCode: "workspaces",
-        revenue: 175500
-      },
-      {
-        planCode: "growth",
-        version: 1,
-        featureCode: "storage_gb",
-        revenue: 300
-      },
-      {
-        planCode: "growth",
-        version: 1,
-        featureCode: "seats",
-        revenue: 15000
-      },
-      {
-        planCode: "growth",
-        version: 1,
-        featureCode: "workspaces",
-        revenue: 4000
-      },
-      {
-        planCode: "growth",
-        version: 2,
-        featureCode: "storage_gb",
-        revenue: 8568
-      },
-      {
-        planCode: "growth",
-        version: 2,
-        featureCode: "seats",
-        revenue: 408000
-      },
-      {
-        planCode: "growth",
-        version: 2,
-        featureCode: "workspaces",
-        revenue: 119000
-      },
-      {
-        planCode: "growth",
-        version: 3,
-        featureCode: "storage_gb",
-        revenue: 1164
-      },
-      {
-        planCode: "growth",
-        version: 3,
-        featureCode: "seats",
-        revenue: 55500
-      },
-      {
-        planCode: "growth",
-        version: 3,
-        featureCode: "workspaces",
-        revenue: 16000
-      },
-      {
-        planCode: "scale",
-        version: 1,
-        featureCode: "storage_gb",
-        revenue: 380
-      },
-      {
-        planCode: "scale",
-        version: 1,
-        featureCode: "seats",
-        revenue: 18200
-      },
-      {
-        planCode: "scale",
-        version: 1,
-        featureCode: "workspaces",
-        revenue: 5200
-      },
-      {
-        planCode: "scale",
-        version: 2,
-        featureCode: "storage_gb",
-        revenue: 1970
-      },
-      {
-        planCode: "scale",
-        version: 2,
-        featureCode: "seats",
-        revenue: 90000
-      },
-      {
-        planCode: "scale",
-        version: 2,
-        featureCode: "workspaces",
-        revenue: 26400
-      },
-      {
-        planCode: "enterprise",
-        version: 1,
-        featureCode: "storage_gb",
-        revenue: 120
-      },
-      {
-        planCode: "enterprise",
-        version: 1,
-        featureCode: "workspaces",
-        revenue: 1500
-      }
-    ],
-    packPurchases: [
-      {
-        packCode: "pack_10k",
-        purchasedLast30Days: 96
-      },
-      {
-        packCode: "pack_50k",
-        purchasedLast30Days: 24
-      },
-      {
-        packCode: "pack_250k",
-        purchasedLast30Days: 3
-      }
-    ]
-  }
+  subscriptionsByRelease: [
+    {
+      planCode: "free",
+      version: 1,
+      subscriptions: 1240
+    },
+    {
+      planCode: "starter",
+      version: 1,
+      subscriptions: 86
+    },
+    {
+      planCode: "starter",
+      version: 2,
+      subscriptions: 502
+    },
+    {
+      planCode: "growth",
+      version: 1,
+      subscriptions: 12
+    },
+    {
+      planCode: "growth",
+      version: 2,
+      subscriptions: 340
+    },
+    {
+      planCode: "growth",
+      version: 3,
+      subscriptions: 46
+    },
+    {
+      planCode: "scale",
+      version: 1,
+      subscriptions: 18
+    },
+    {
+      planCode: "scale",
+      version: 2,
+      subscriptions: 94
+    },
+    {
+      planCode: "enterprise",
+      version: 1,
+      subscriptions: 7
+    }
+  ]
 } satisfies Catalog;

@@ -69,27 +69,10 @@ export type CreditPack = {
 };
 
 /** Live state. Never stored inside the plan definition, which is shared by every subscription. */
-export type Metrics = {
-  periodStart: string;
-  periodEnd: string;
-  subscriptionsByRelease: {
-    planCode: string;
-    version: number;
-    subscriptions: number;
-  }[];
-  creditsConsumedByFeature: {
-    planCode: string;
-    version: number;
-    featureCode: string;
-    creditsConsumed: number;
-  }[];
-  capacityRevenueByFeature: {
-    planCode: string;
-    version: number;
-    featureCode: string;
-    revenue: number;
-  }[];
-  packPurchases: { packCode: string; purchasedLast30Days: number }[];
+export type ReleaseSubscriptions = {
+  planCode: string;
+  version: number;
+  subscriptions: number;
 };
 
 export type Catalog = {
@@ -102,5 +85,5 @@ export type Catalog = {
   features: CatalogFeature[];
   plans: Plan[];
   creditPacks: CreditPack[];
-  metrics: Metrics;
+  subscriptionsByRelease: ReleaseSubscriptions[];
 };
