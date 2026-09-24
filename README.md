@@ -1,6 +1,6 @@
 # Commet Challenge
 
-Commet is the platform where a company configures how it charges its customers. This exercise is an interface inside the Commet dashboard.
+Commet is the platform where a company configures how it charges its customers. This exercise is an interface inside the Commet dashboard. You don't need to follow Commet's design system: typography, color, layout and components are your call. We evaluate your design judgment as much as your code.
 
 Nimbus is a customer of Commet: it generates images, copy and video with AI, and charges for it in credits. `data/catalog.ts` holds their entire pricing — 12 features, 5 plans, 9 plan versions, 105 feature configurations — and how many customers are subscribed to each version.
 
@@ -11,9 +11,9 @@ The people using it are the Nimbus team: technical people shipping their own pro
 1. **Present complex data.** Someone at Nimbus opens the interface and understands how they are charging their customers.
 2. **Create a new plan.** A flow that takes them from nothing to a published plan, understanding what each decision means before making it.
 
-Editing an existing plan is optional.
-
 ## Questions to start from
+
+Starting points, not a checklist. You don't need to answer every one.
 
 **Presenting**
 
@@ -66,13 +66,15 @@ The credit chain: the `PlanPrice` sets a budget (`includedCredits`), consumption
 
 ## Scope
 
-One page or several, laid out however presents the information best. Nothing has to persist — faking the save is fine. What matters is how the information is ordered, and that the experience makes clear what each field means before it is set.
+One page or several, laid out however presents the information best. Nothing has to persist — faking the save is fine. What matters is what you choose to show, in what order, and what you leave out, and that the experience makes clear what each field means before it is set.
+
+The data is organized for storage, not for display. The interface doesn't have to follow its structure, and you can reshape it if it gets in the way. Tell us what you changed.
 
 You can use AI agents. The code you hand in is yours and we will read it.
 
 ## Delivering
 
-Create a public repository from this template with "Use this template", work there, and email the link to decker@commet.co.
+Create a public repository from this template with "Use this template", work there, and email the link to decker@commet.co with a few lines on what you left out and why.
 
 ## Running
 
